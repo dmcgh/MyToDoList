@@ -1,0 +1,63 @@
+extends ../shared/template
+block content
+  h1 New
+
+  .row
+      .col-xs-6
+        form(action='/tasks', method='post')
+          .form-group
+            label Name
+            input.form-control(type='text', name='name')
+          .form-group
+            label Due
+            input.form-control(type='date', name='due')
+          .form-group
+            label Priority
+            select.form-control(name='priority')
+              each priority in priorities
+                option(value=priority.value)= priority.name
+          .form-group
+            label Category
+            select.form-control(name='category')
+              each category in categories
+                option= category.name
+          .form-group
+            button.btn.btn-primary(type='submit') Add
+      .col-xs-6
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//- extends ../shared/template
+//-
+//- block content
+//-   .row
+//-     .col-xs-4
+//-       form(action='/tasks', method='post')
+//-         .form-group
+//-           label(for='title') Name of task
+//-           input#InputTitle.form-control(name='title', type='text', placeholder='Pick up milk')
+//-         .form-group
+//-           label(for='dueDate') Date Due
+//-           input#InputDueDate.form-control(name='dueDate', type='date', placeholder='Doomsday')
+//-         select.form-group(name='category') Category of task
+//-           each category in categories
+//-             option= category.name
+//-         select.form-group(name=priority) Priority Level
+//-           each priority in priorities
+//-             option(value=priority.value)= priorities.name
+//-         button.btn.btn-default(type='submit') Submit
+//-       .col-xs-4
